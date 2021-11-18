@@ -78,24 +78,25 @@ function quickSortSub(arr, begin, end) {
     quickSortSub(arr, begin, swapPoint);
     quickSortSub(arr, swapPoint + 1, end);
 }
-// function quickSortSub2(arr, begin, end) {
-//     if(begin >= end) return;
-//     var left = begin + 1;
-//     var right = end;
-//     while(left < right) {
-//         while(left < right && arr[left] < arr[begin]) left ++;
-//         while(right > left && arr[right] > arr[begin]) right --; 
-//         if(left < right) swap(arr, left, right);
-//     }
-//     var swapPoint = left == right ? right - 1: right;
-//     swap(arr, begin, swapPoint);
-//     quickSortSub(arr, begin, swapPoint - 1);
-//     quickSortSub(arr, swapPoint + 1, end);
+function quickSortSub2(arr, begin, end) {
+    if(begin >= end) return;
+    var left = begin;
+    var right = end;
+    baseValue = arr[begin];
+    while(left < right) {
+        while(right > left && arr[right] >= baseValue) right --; 
+        arr[left] = arr[right];
+        while(left < right && arr[left] <= baseValue) left ++;
+        arr[right] = arr[left];
+    }
+    arr[left] = baseValue;
+    quickSortSub2(arr, begin, right - 1);
+    quickSortSub2(arr, right + 1, end);
     
-// }
+}
 function quickSort(arr) {
-    // quickSortSub2(arr, 0, arr.length - 1);
-    quickSortSub(arr, 0, arr.length);
+    quickSortSub2(arr, 0, arr.length - 1);
+    // quickSortSub(arr, 0, arr.length);
 }
 
 console.log(quickSort(arr), arr);
