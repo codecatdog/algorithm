@@ -68,9 +68,8 @@ function recursionTraversal(root) {
 
 // 链表的逆置
 function reverseLink(root) {
-    if(root.next.next == null) { //root -》倒数第二个节点
-        root.next.next = root; //让最后一个节点指向倒数第二个节点
-        return root.next; // 返回新的根节点
+    if(root == null || root.next == null) {
+        return root;
     } else {
         var result = reverseLink(root.next);
         root.next.next = root; //让当前节点的下一个节点指向自己
@@ -78,6 +77,19 @@ function reverseLink(root) {
         return result; // 返回新的根节点
     }
 }
+// 非递归 链表的逆置
+function reverseLink2(root) {
+    let pre = null;
+    let cur = root;
+
+    while(cur) {
+        tmp = cur.next;
+        cur.next = pre;
+        pre = cur;
+        cur = tmp;
+    }
+    return pre
+}
 
 
-console.log(reverseLink(a));
+console.log(reverseLink2(a));
