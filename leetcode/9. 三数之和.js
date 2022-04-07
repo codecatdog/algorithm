@@ -4,6 +4,13 @@
  * 输入：nums = [-1,0,1,2,-1,-4]
  * 输出：[[-1,-1,2],[-1,0,1]]
  * 
+ * 双指针法铺垫：先将给定 nums 排序。
+ * 
+ * 双指针法思路：固定 3 个指针中最左（最小）数字的指针 first，
+ * 双指针 second，third 分设在数组索引 (first, len(nums))两端，
+ * 通过双指针交替向中间移动，记录对于每个固定指针 first 的所有满足 
+ *  nums[first] + nums[second] + nums[third] == 0 的 second,third 组合
+ * 
  */
 
 /**
