@@ -22,6 +22,7 @@ var cuttingRope = function(n) {
     let dp = [];
     dp[0] = 0, dp[1] = 0, dp[2] = 1;
     let ans;
+    const m = 1000000007;
     for(let i = 3; i <= n; i ++) {
         ans = 1;
         for(let j = 1; j <= i/2; j ++) {
@@ -33,4 +34,23 @@ var cuttingRope = function(n) {
 
 };
 
-console.log(cuttingRope(5))
+/**
+ * n的取值范围变大，需要对大数答案取模 1e9+7（1000000007），如计算初始结果为：1000000008，请返回 1。
+ * 要取模不能dp
+ * @param {number} n 2 <= n <= 1000
+ * @returns 
+ */
+var cuttingRope1 = function(n) {
+    // 3*3*3...
+    if(n < 4) return n - 1;
+    let res = 1;
+    while(n > 4) {
+        res *= 3;
+        res %= 1000000007;
+        n -= 3;
+    }
+    return (res * n) % 1000000007;
+
+};
+
+console.log(cuttingRope1(120))
