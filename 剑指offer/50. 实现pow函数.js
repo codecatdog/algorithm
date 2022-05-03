@@ -30,7 +30,7 @@ var myPow = function (x, n) {
         x *= x;
         n >>>= 1; // Math.floor(n / 2);
     }
-    return n;
+    return res;
 };
 
 console.log(myPow(2, -2147483648))
