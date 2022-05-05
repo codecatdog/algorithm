@@ -46,6 +46,7 @@ var findNthDigit = function(n) {
     } // 确定第n位对应的数位和开始数字
 
     let num = start + Math.floor((n - 1) / digit); // 确定第n位对应的数字
+    // let num = start + Math.ceil(n / digit) - 1;  //第二种方法
     return num.toString()[(n - 1) % digit] // 通过转化位字符串再取模，确定第n位对应数字的第几位
 
 };
