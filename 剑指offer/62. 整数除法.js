@@ -45,7 +45,7 @@
 
     // let shift = 31;
     // while(a >= b) {
-    //     while((a >>> shift) - b < 0) {  // a >= (b << i)
+    //     while((a >>> shift) - b < 0) {  // a >= (b << shift)
     //         shift --;
     //     }
     //     a -= (b << shift);
@@ -57,7 +57,7 @@
     // }
 
     for (let x = 31; x >= 0; x--) {
-        if ((a >>> x) - b >= 0) {  // a >= (b << i) 左移很可能会越界
+        if ((a >>> x) - b >= 0) {  // a >= (b << x) 左移很可能会越界
             a = a - (b << x)
             // 代码优化：这里控制 res 大于等于 INT_MAX
             if (res > INT_MAX - (1 << x)) {
