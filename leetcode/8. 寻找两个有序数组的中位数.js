@@ -19,7 +19,8 @@ var findMedianSortedArrays = function (nums1, nums2) {
     var len1 = nums1.length, len2 = nums2.length;
     if (!len1 && !len2) return null;
     var index1 = 0, index2 = 0; // index1指向数组1， index2指向数组2
-    var left = -1, right = -1; // left表示上一次循环的值，right表示当前循环的值，用于数组和为偶数的情况
+    var left = -1, right = -1; // left表示上一次循环的值，right表示当前循环的值
+    // 若数组长度为奇数，直接返回right，否则，返回left 和 right 的平均值
     var targetIndex = Math.floor((len1 + len2) / 2); // 中位数目标index
     
     for(var i = 0; i <= targetIndex; i ++) {
