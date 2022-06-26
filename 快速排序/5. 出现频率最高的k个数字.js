@@ -32,8 +32,8 @@ const topKFrequent = function(nums, k) {
     let left = 0;
     let right = list.length - 1;
     let index = partion(list, left, right);
-    while(index !== k) {
-        if(index < k) {
+    while(index !== k - 1) {
+        if(index < k - 1) {
             left = index + 1;
         } else {
             right = index - 1;
@@ -72,4 +72,4 @@ function swap(arr, i, j) {
     arr[j] = temp;
 }
 
-console.log(topKFrequent(nums = [1], k = 1))
+console.log(topKFrequent(nums = [1, 2, 3], k = 3))
