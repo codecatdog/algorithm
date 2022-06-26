@@ -1,6 +1,9 @@
 /**
  * 给定整数数组 nums 和整数 k，请返回数组中第 k 个最大的元素。
- * 
+ * 要求：需要找的是数组排序后的第 k 个最大的元素，而不是第 k 个不同的元素。
+ * 示例：
+ * 输入: [3,2,3,1,2,4,5,5,6] 和 k = 4
+ * 输出: 4
  */
 
 /**
@@ -31,7 +34,7 @@ function partion(arr, left, right) {
     swap(arr, left, index); // 将pivot放到首位
     var mark = left;
     for(var i = left + 1; i <= right; i++) {
-        if(arr[i] > pivot) {
+        if(arr[i] >= pivot) {
             mark++;
             swap(arr, mark, i);
         }
@@ -46,4 +49,4 @@ function swap(arr, i, j) {
     arr[j] = temp;
 }
 
-console.log(findKthLargest([3,2,1,5,6,6,4], k = 2))
+console.log(findKthLargest([3,2,1,5,6,6,5,4], k = 3))
