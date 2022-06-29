@@ -28,7 +28,7 @@ const levelOrderBottom = function(root) {
             if(node.left) queue.push(node.left);
             if(node.right) queue.push(node.right);
         }
-        res.unshift(temp);
+        res.unshift(temp); // 重点，每次从头部插入
     }
     return res;
 };
