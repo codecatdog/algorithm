@@ -22,14 +22,14 @@ const recoverTree = function(root) {
     let x = null;
     let y = null;
     let pred = null; // 用于记录上一个遍历的节点
-    while(stack.length || !root) {
-        while(!root) {
+    while(stack.length || root) {
+        while(root) {
             stack.push(root);
             root = root.left;
         }
         root = stack.pop();
         // 找到两个节点, 并且一定是后面的小节点和前面的大节点交换
-        if(!pred && root.val < pred.val) { // 当前节点值小于上一个节点
+        if(pred && root.val < pred.val) { // 当前节点值小于上一个节点
             y = root; // 记录下当前的最小节点，该节点应为遍历到第二次不满足升序条件的小节点
             if (x === null) {
                 x = pred; // x一定是前面第一次比较时的大节点
@@ -45,4 +45,11 @@ const recoverTree = function(root) {
         y.val = temp;
     }
     swap(x, y);
+    return root
 };
+function Node(val, left, right, next) {
+    this.val = val === undefined ? null : val;
+    this.left = left === undefined ? null : left;
+    this.right = right === undefined ? null : right;
+};
+console.log(recoverTree(new Node(1, new Node(3, null, new Node(2)))))
