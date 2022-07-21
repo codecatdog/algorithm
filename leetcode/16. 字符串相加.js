@@ -19,7 +19,7 @@ var addStrings = function(num1, num2) {
 
     let res = '';
     while(p1 >= 0 || p2 >= 0) {
-        let n1 = p1 >= 0 ? num1.charAt(p1) - '0' : 0;
+        let n1 = p1 >= 0 ? num1.charAt(p1) - '0' : 0; // 前面没有了的话就补零
         let n2 = p2 >= 0 ? num2.charAt(p2) - '0' : 0;
 
         res = (n1 + n2 + carry) % 10 + res;
