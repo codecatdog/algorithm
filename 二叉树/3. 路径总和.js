@@ -26,7 +26,7 @@ function dfs(root, target) {
     if(!root) {
         return false;
     }
-    if(!root.left && !root.right) {
+    if(!root.left && !root.right) { // 一定要在叶子节点判断，不能到空姐点判断，避免根节点导致的错误
         return root.val === target;
     }
     let val = root.val;
