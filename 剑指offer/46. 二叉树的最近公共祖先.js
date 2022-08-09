@@ -55,10 +55,10 @@ var lowestCommonAncestor = function(root, p, q) {
         var left = recur(root.left, p, q);
         var right = recur(root.right, p, q);
         
-        if(left && right) return root;
-        if(!left && !right) return null;
-        if(left && !right) return left;
-        if(!left && right) return right;
+        if(left && right) return root; // p、q 在root两边
+        if(!left && !right) return null; // p、q两边都没有
+        if(left && !right) return left; // p、q在左边
+        if(!left && right) return right; // p、q在右边
     };    
 
     return recur(root, p, q);
